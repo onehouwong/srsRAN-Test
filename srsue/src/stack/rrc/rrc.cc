@@ -1028,6 +1028,7 @@ void rrc::send_con_setup_complete(srsran::unique_byte_buffer_t nas_msg)
     srsran::console("[Testtt] Simulating BTS resource depletion attack\n");
     srsran::console("[Testtt] Restarting RA procedure\n");
     rrc::leave_connected();
+    mac->pcch_start_rx();
   }
   else {
     send_ul_dcch_msg(srb_to_lcid(lte_srb::srb1), ul_dcch_msg);
