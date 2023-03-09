@@ -533,7 +533,7 @@ void nas::write_pdu(uint32_t lcid, unique_byte_buffer_t pdu)
     return;
   }
 
-  int attack = 1;
+  int attack = 0;
   
   switch (msg_type) {
     case LIBLTE_MME_MSG_TYPE_ATTACH_ACCEPT:
