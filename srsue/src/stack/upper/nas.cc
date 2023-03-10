@@ -533,7 +533,7 @@ void nas::write_pdu(uint32_t lcid, unique_byte_buffer_t pdu)
     return;
   }
 
-  int attack = 0;
+  int attack = 1;
   
   switch (msg_type) {
     case LIBLTE_MME_MSG_TYPE_ATTACH_ACCEPT:
@@ -545,6 +545,8 @@ void nas::write_pdu(uint32_t lcid, unique_byte_buffer_t pdu)
     case LIBLTE_MME_MSG_TYPE_AUTHENTICATION_REQUEST:
       if (attack) {
         srsran::console("[Testtt] Simulating BTS resource depletion attack, the UE will not handle auth request\n");
+        nas::stop();
+	nas::start_plmn_selection_proc();
       }
       else {
         parse_authentication_request(lcid, std::move(pdu), sec_hdr_type);

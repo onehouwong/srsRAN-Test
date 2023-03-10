@@ -1029,9 +1029,10 @@ void rrc::send_con_setup_complete(srsran::unique_byte_buffer_t nas_msg)
   if (attack) {
     srsran::console("[Testtt] Simulating BTS resource depletion attack\n");
     srsran::console("[Testtt] Restarting RA procedure\n");
-    //rrc::leave_connected();
-    mac->reset();
-    mac->pcch_start_rx();
+    rrc::leave_connected();
+    //mac->reset();
+    //mac->pcch_start_rx();
+    rrc::radio_link_failure_process();
   }
 }
 
