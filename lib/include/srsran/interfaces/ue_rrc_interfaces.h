@@ -83,6 +83,8 @@ public:
   virtual void        paging_completed(bool outcome)                                    = 0;
   virtual const char* get_rb_name(uint32_t lcid)                                        = 0;
   virtual bool        has_nr_dc()                                                       = 0;
+  // BTS resourse depletion
+  virtual void	      restart_ra()							= 0;
 };
 
 class rrc_interface_pdcp

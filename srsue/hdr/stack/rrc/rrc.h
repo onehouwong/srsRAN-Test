@@ -106,6 +106,7 @@ public:
   void     set_ue_identity(srsran::s_tmsi_t s_tmsi);
   void     paging_completed(bool outcome) final;
   bool     has_nr_dc();
+  void	   restart_ra();
 
   // NR interface
   void new_cell_meas_nr(const std::vector<phy_meas_nr_t>& meas);
