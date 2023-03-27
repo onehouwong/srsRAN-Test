@@ -2921,7 +2921,7 @@ bool rrc::has_nr_dc()
 
 void rrc::restart_ra() 
 {
-  srsran::console("[BTS resource depletion] Restarting RA procedure\n");
+  srsran::console("[BTS Resource Depletion] Restarting RA procedure\n");
   rrc::out_of_sync();  
 
   //state = RRC_STATE_IDLE;
