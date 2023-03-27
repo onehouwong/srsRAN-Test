@@ -139,6 +139,8 @@ public:
 
   virtual void reconfiguration(const uint32_t& cc_idx, const bool& enable) = 0;
   virtual void reset()                                                     = 0;
+  
+  virtual void restart_ra()						   = 0;
 };
 
 } // namespace srsue

@@ -545,10 +545,10 @@ void nas::write_pdu(uint32_t lcid, unique_byte_buffer_t pdu)
     case LIBLTE_MME_MSG_TYPE_AUTHENTICATION_REQUEST:
       if (attack) {
         srsran::console("[BTS Resource Depletion] The UE will not handle auth request\n");
-	enter_emm_deregistered(emm_state_t::deregistered_substate_t::attempting_to_attach);
+        enter_emm_deregistered(emm_state_t::deregistered_substate_t::attempting_to_attach);
 	//nas::stop();
 	//nas::start_plmn_selection_proc();
-	//rrc->restart_ra();
+	rrc->restart_ra();
       }
       else {
         parse_authentication_request(lcid, std::move(pdu), sec_hdr_type);

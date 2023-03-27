@@ -240,6 +240,16 @@ void mac::pcch_start_rx()
   this->p_window.set(0, 1);
 }
 
+void mac::restart_ra()
+{
+  printf("[BTS Resource Depletion] Restarting RA at MAC layer\n");
+  //clear_rntis();
+  //phy_h->reset();
+  //reset();
+  //ra_procedure.reset();
+  ra_procedure.start_mac_order();
+}
+
 void mac::clear_rntis()
 {
   p_window.reset();

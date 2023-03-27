@@ -2921,9 +2921,15 @@ bool rrc::has_nr_dc()
 
 void rrc::restart_ra() 
 {
-  srsran::console("[Testtt] BTS resource depletion: Restarting RA procedure\n");
-  rrc::leave_connected();
-  //mac->reset();
+  srsran::console("[BTS resource depletion] Restarting RA procedure\n");
+  rrc::out_of_sync();  
+
+  //state = RRC_STATE_IDLE;
+  //mac->restart_ra(); 
+  
+  //radio_link_failure_push_cmd();
+  //rrc::leave_connected();
+  //rrc::start_cell_select();
   //mac->pcch_start_rx();
   //rrc::radio_link_failure_process();
   //mac->reset();

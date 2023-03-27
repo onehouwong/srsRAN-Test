@@ -170,6 +170,7 @@ public:
 
   void reconfiguration(const uint32_t& cc_idx, const bool& enable) override {}
   void reset() override {}
+  void restart_ra() override {}
 };
 
 class rrc_nr_test final : public srsue::rrc_nr_interface_rrc

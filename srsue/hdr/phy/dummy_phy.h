@@ -37,6 +37,7 @@ public:
   bool        is_initialized() final { return false; }
   void        start_plot() final {}
   void        get_metrics(const srsran::srsran_rat_t& rat, phy_metrics_t* m) final {}
+  void	      reset() {}
 
   // phy_interface_stack_lte
   void prach_send(uint32_t preamble_idx, int allowed_subframe, float target_power_dbm, float ta_base_sec = 0.0f) final

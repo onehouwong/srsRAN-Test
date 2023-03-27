@@ -80,6 +80,7 @@ public:
   void mch_start_rx(uint32_t lcid);
   void reconfiguration(const uint32_t& cc_idx, const bool& enable);
   void reset();
+  void restart_ra();
 
   /******** set/get MAC configuration  ****************/
   void set_config(mac_cfg_t& mac_cfg);

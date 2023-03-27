@@ -158,6 +158,7 @@ public:
   virtual int  sr_last_tx_tti() = 0;
 
   virtual void set_mch_period_stop(uint32_t stop) = 0;
+  virtual void reset() = 0;
 };
 
 class phy_interface_rrc_lte
